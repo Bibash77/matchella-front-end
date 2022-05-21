@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, finalize } from 'rxjs/operators';
 
@@ -8,6 +8,7 @@ import { environment } from '@environments/environment';
 import { Account } from '@app/_models';
 
 const baseUrl = `${environment.apiUrl}/accounts`;
+const tokenUrl = `${environment.tokenUrl}`;
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -27,11 +28,19 @@ export class AccountService {
     }
 
     login(email: string, password: string) {
-        return this.http.post<any>(`${baseUrl}/authenticate`, { email, password }, { withCredentials: true })
+      let options = {
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+      }
+      const body = new HttpParams()
+        .set('username', email)
+        .set('password', password);
+        return this.http.post<any>(`${tokenUrl}/token`, body.toString(), options)
             .pipe(map(account => {
                 this.accountSubject.next(account);
-                this.startRefreshTokenTimer();
-                return account;
+                // this.startRefreshTokenTimer();
+              console.log(account);
+
+              return account;
             }));
     }
 
@@ -58,15 +67,15 @@ export class AccountService {
     verifyEmail(token: string) {
         return this.http.post(`${baseUrl}/verify-email`, { token });
     }
-    
+
     forgotPassword(email: string) {
         return this.http.post(`${baseUrl}/forgot-password`, { email });
     }
-    
+
     validateResetToken(token: string) {
         return this.http.post(`${baseUrl}/validate-reset-token`, { token });
     }
-    
+
     resetPassword(token: string, password: string, confirmPassword: string) {
         return this.http.post(`${baseUrl}/reset-password`, { token, password, confirmPassword });
     }
@@ -78,11 +87,11 @@ export class AccountService {
     getById(id: string) {
         return this.http.get<Account>(`${baseUrl}/${id}`);
     }
-    
+
     create(params) {
         return this.http.post(baseUrl, params);
     }
-    
+
     update(id, params) {
         return this.http.put(`${baseUrl}/${id}`, params)
             .pipe(map((account: any) => {
@@ -95,7 +104,7 @@ export class AccountService {
                 return account;
             }));
     }
-    
+
     delete(id: string) {
         return this.http.delete(`${baseUrl}/${id}`)
             .pipe(finalize(() => {
