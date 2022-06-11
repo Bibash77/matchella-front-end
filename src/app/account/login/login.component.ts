@@ -3,11 +3,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '@app/_services';
-import {LocalStorageUtil} from "../core/utils/local-storage-util";
-import {Account} from "../_models";
+import { AccountService, AlertService } from '../../_services';
+import {LocalStorageUtil} from "../../core/utils/local-storage-util";
+import {Account} from "../../_models";
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({ templateUrl: 'login.component.html' , styleUrls: ['login.component.scss']})
 export class LoginComponent implements OnInit {
     form: FormGroup;
     loading = false;
