@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '@app/_services';
+import {LocalStorageUtil} from "../core/utils/local-storage-util";
+import {Account} from "../_models";
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
@@ -42,19 +44,40 @@ export class LoginComponent implements OnInit {
 
         this.loading = true;
         this.accountService.login(this.f.email.value, this.f.password.value)
-            .pipe(first())
             .subscribe({
-                next: () => {
-                  console.log(this.route.snapshot.queryParams['returnUrl'] , "tst");
+                next: (responseToken) => {
+                  console.log(this.route.snapshot.queryParams['returnUrl'] , "tst", responseToken);
                     // get return url from query parameters or default to home page
                   const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                  // set token values
+                  const storage = LocalStorageUtil.getStorage();
+                  storage.email = responseToken.email;
+                  storage.at = responseToken.access_token;
+                  storage.rt = responseToken.refresh_token;
+                  storage.ty = responseToken.token_type;
+                  storage.username = responseToken.username;
+                  let acc:Account = new Account();
+                  acc.email = storage.email;
+                  acc.id = responseToken.id;
+                  acc.jwtToken = responseToken.access_token;
+                  acc.username = responseToken.username;
+                  this.accountService.setAccount = acc;
 
-                    this.router.navigateByUrl(returnUrl);
+
+                  this.router.navigateByUrl(returnUrl);
                 },
                 error: error => {
                     this.alertService.error(error);
                     this.loading = false;
                 }
             });
+
+        this.accountService.login(this.f.email.value, this.f.password.value).subscribe(value => {
+          console.log(value);
+        })
+    }
+
+    setTokenValues() {
+
     }
 }

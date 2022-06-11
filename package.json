@@ -43,17 +43,5 @@
     "ts-node": "^8.3.0",
     "tslint": "^6.1.0",
     "typescript": "^3.9.5"
-  },
-  "description": "Angular 10 Boilerplate - Email Sign Up with Verification, Authentication & Forgot Password",
-  "main": "karma.conf.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bibash77/matchella-front-end.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Bibash77/matchella-front-end/issues"
-  },
-  "homepage": "https://github.com/Bibash77/matchella-front-end#readme"
+  }
 }

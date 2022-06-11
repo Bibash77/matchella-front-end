@@ -27,6 +27,11 @@ export class AccountService {
         return this.accountSubject.value;
     }
 
+    public set setAccount(acc: Account) {
+         this.accountSubject = new BehaviorSubject<Account>(null);
+      this.account = this.accountSubject.asObservable();
+    }
+
     login(email: string, password: string) {
       let options = {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')

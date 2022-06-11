@@ -4,6 +4,7 @@ export class Account {
     id: string;
     title: string;
     firstName: string;
+    username: string;
     lastName: string;
     email: string;
     role: Role;
