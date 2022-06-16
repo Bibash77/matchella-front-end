@@ -1,0 +1,104 @@
+section,
+div {
+  margin: 0;
+}
+
+.login {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  &-form {
+    h2 {
+      margin-bottom: 32px;
+    }
+    margin-left: 100px;
+    display: grid;
+    align-content: center;
+    button {
+      margin-top: 40px;
+    }
+    .btn-group {
+      gap: 1rem;
+      .btn {
+        border-radius: 8px;
+        &-primary {
+          background-color: #ee6391;
+          border: none;
+        }
+      }
+    }
+  }
+  align-items: center;
+}
+
+.login-sidebar {
+  margin: 0;
+  padding: 0;
+  position: relative !important;
+  &-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.media-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  margin: 0;
+}
+
+.gender {
+  .d-flex {
+    gap: 1rem;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  }
+  &-badge {
+    padding: 8px 16px;
+    background-color: unset;
+    color: black;
+    border: 1px solid black;
+  }
+}
+
+input[type="date"] {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 0.5rem;
+  font-family: "Roboto Mono", monospace;
+  color: #969696;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #d4d4d5;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: black;
+}
+
+input[type="date"]:active {
+  color: rgb(68, 68, 68);
+}
+input[type="date"]:focus {
+  color: rgb(68, 68, 68);
+}
