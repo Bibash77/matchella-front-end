@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     get f() { return this.form.controls; }
 
     onSubmit() {
+      console.log("test")
         this.submitted = true;
 
         // reset alerts on submit
@@ -39,17 +40,19 @@ export class LoginComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.form.invalid) {
-            return;
+          console.log(this.form);
+          return;
         }
 
         this.loading = true;
         this.accountService.login(this.f.email.value, this.f.password.value)
             .subscribe({
                 next: (responseToken) => {
-                  console.log(this.route.snapshot.queryParams['returnUrl'] , "tst", responseToken);
+                  // console.log(this.route.snapshot.queryParams['returnUrl'] , "tst", responseToken);
                     // get return url from query parameters or default to home page
                   const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
                   // set token values
+                  console.log(returnUrl);
                   const storage = LocalStorageUtil.getStorage();
                   storage.email = responseToken.email;
                   storage.at = responseToken.access_token;
@@ -61,10 +64,11 @@ export class LoginComponent implements OnInit {
                   acc.id = responseToken.id;
                   acc.jwtToken = responseToken.access_token;
                   acc.username = responseToken.username;
+                  LocalStorageUtil.setStorage(storage);
                   this.accountService.setAccount = acc;
 
 
-                  this.router.navigateByUrl(returnUrl);
+                  this.router.navigateByUrl("/home");
                 },
                 error: error => {
                     this.alertService.error(error);

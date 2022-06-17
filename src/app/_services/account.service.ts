@@ -6,6 +6,7 @@ import { map, finalize } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 import { Account } from '@app/_models';
+import {LocalStorageUtil} from "@app/core/utils/local-storage-util";
 
 const baseUrl = `${environment.apiUrl}/accounts`;
 const tokenUrl = `${environment.tokenUrl}`;
@@ -50,6 +51,7 @@ export class AccountService {
     }
 
     logout() {
+         LocalStorageUtil.clearStorage();
         this.http.post<any>(`${baseUrl}/revoke-token`, {}, { withCredentials: true }).subscribe();
         this.stopRefreshTokenTimer();
         this.accountSubject.next(null);
