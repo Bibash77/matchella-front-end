@@ -59,6 +59,8 @@ export class LoginComponent implements OnInit {
                   storage.rt = responseToken.refresh_token;
                   storage.ty = responseToken.token_type;
                   storage.username = responseToken.username;
+                  storage.userId = responseToken.id;
+                  storage.fullName = responseToken.fullName;
                   let acc:Account = new Account();
                   acc.email = storage.email;
                   acc.id = responseToken.id;
@@ -67,7 +69,7 @@ export class LoginComponent implements OnInit {
                   LocalStorageUtil.setStorage(storage);
                   this.accountService.setAccount = acc;
 
-
+                  console.log("jere");
                   this.router.navigateByUrl("/home");
                 },
                 error: error => {
