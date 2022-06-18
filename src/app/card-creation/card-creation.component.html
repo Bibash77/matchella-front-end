@@ -1,0 +1,47 @@
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+
+    <mat-card>
+      <mat-card-header>
+        <div>
+         <h5>    <p>Create a Post</p></h5>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+<form [formGroup]="form" >
+          <div>
+            <div class="tab-content" id="myTabContent">
+
+              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <div class="form-group">
+                  <label class="sr-only" for="message">Title</label>
+                  <input class="form-control" formControlName="title" id="title"  placeholder="What are you Searching for?"/>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="message"></label>
+                  <textarea class="form-control" id="message" formControlName="detailBody" rows="3" placeholder="What are you thinking?"></textarea>
+                </div>
+                <div class="py-4"></div>
+                <div id="images" role="tabpanel" aria-labelledby="images-tab">
+                  <div class="form-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile" (change)="handleUpload($event)">
+                      <label class="custom-file-label" for="customFile">Upload image</label>
+                    </div>
+                  </div>
+                  <div class="py-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+</form>
+      </mat-card-content>
+      <mat-card-title >
+        <div class="row">
+
+          <button mat-flat-button class="bg-color float-right" (click)="onSubmit()"> submit</button>
+        </div>
+      </mat-card-title>
+    </mat-card>
+</div>
+</div>
