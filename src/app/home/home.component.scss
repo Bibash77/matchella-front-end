@@ -1,0 +1,103 @@
+/*left sidebar*/
+.tags {
+  gap: 0.5rem;
+  p {
+    margin-bottom: 0;
+  }
+  .tag {
+    background-color: #ee6391;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: rgb(255, 255, 255);
+  }
+}
+
+/*post*/
+
+/*right sidebar */
+.search {
+  input {
+    width: 100%;
+  }
+}
+
+.user {
+  gap: 1rem;
+  img {
+    border-radius: 50%;
+    height: 30px;
+    width: 54px;
+    background-position: center;
+  }
+}
+
+/*nav*/
+.nav-bar {
+  background-color: #ee6391;
+  .logo {
+    color: white;
+    font-weight: bold;
+  }
+  li {
+    color: white;
+  }
+}
+
+
+/*left sidebar*/
+.tags {
+  gap: 0.5rem;
+}
+
+.tags p {
+  margin-bottom: 0;
+}
+
+.tags .tag {
+  background-color: #ee6391;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: white;
+}
+
+/*post*/
+/*right sidebar */
+.search input {
+  width: 100%;
+}
+
+.user {
+  gap: 1rem;
+}
+
+.user img {
+  border-radius: 50%;
+  height: 54px;
+  width: 54px;
+  background-position: center;
+}
+
+/*nav*/
+.nav-bar {
+  background-color: #ee6391;
+}
+
+.nav-bar .logo {
+  color: white;
+  font-weight: bold;
+}
+
+.nav-bar li {
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.example-card {
+  border-bottom: #1B1B1D;
+  margin-bottom: 8px;
+}

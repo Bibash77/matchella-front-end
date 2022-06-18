@@ -1,8 +1,188 @@
-﻿<!--  nishant home page here-->
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+<main class="container mt-4">
+  <div class="row d-flex">
+    <aside class="left col-sm-3">
+      <h3>Tags</h3>
+      <div class="tags d-flex flex-wrap">
+        <p class="tag">Dating </p>
+        <p class="tag">Social Trip</p>
+        <p class="tag">Donation</p>
+      </div>
+    </aside>
+    <section class="center col-sm-6">
+      <mat-card>
+        <div class="row">
 
-<div class="p-4">
-    <div class="container">
-        <h1>Hi!</h1>
-        <p>You're logged in with Angular 10 & JWT!!</p>
-    </div>
-</div>
+          <p>Whats on your mind ? <button style="float: right" mat-flat-button class="bg-color-secondary text-white" routerLink="/card-create">create post</button></p>
+        </div>
+      </mat-card>
+      <div class="posts mb-4">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-actions>
+            <div class="btns d-flex justify-content-around">
+              <div class="example-button-container">
+                <button mat-fab  aria-label="Example icon button with a heart icon">
+                  <mat-icon color="accent">favorite</mat-icon>
+                </button>
+              </div>
+              <div class="example-button-container">
+                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                  <mat-icon>bookmark</mat-icon>
+                </button>
+              </div>
+
+              <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="posts mb-4">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="btns d-flex justify-content-around">
+              <div class="example-button-container">
+                <button mat-fab  aria-label="Example icon button with a heart icon">
+                  <mat-icon color="accent">favorite</mat-icon>
+                </button>
+              </div>
+              <div class="example-button-container">
+                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                  <mat-icon>bookmark</mat-icon>
+                </button>
+              </div>
+
+              <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="posts mb-4">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="btns d-flex justify-content-around">
+              <div class="example-button-container">
+                <button mat-fab  aria-label="Example icon button with a heart icon">
+                  <mat-icon color="accent">favorite</mat-icon>
+                </button>
+              </div>
+              <div class="example-button-container">
+                <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                  <mat-icon>bookmark</mat-icon>
+                </button>
+              </div>
+
+              <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </section>
+    <aside class="right col-sm-3">
+      <div class="search d-flex">
+        <input type="text" placeholder="search" class="mat-form-field"/>
+      </div>
+      <h3 class="mt-4">Match History</h3>
+      <div class="users mt-3">
+
+
+        <mat-card>
+          <div class="user d-flex align-items-center mt-2">
+          <img src="/assets/images/testing.png" alt="" />
+            <p><b>Field Trip To GOA</b></p>
+        </div>
+
+        </mat-card>
+
+        <mat-card>
+          <div class="user d-flex align-items-center mt-2">
+          <img src="/assets/images/testing.png" alt="" />
+            <p><b>Movie Night Doctor Str...</b></p>
+        </div>
+
+        </mat-card>
+
+        <mat-card>
+          <div class="user d-flex align-items-center mt-2">
+          <img src="/assets/images/testing.png" alt="" />
+            <p><b> JAva Developer Job </b></p>
+        </div>
+
+        </mat-card>
+
+      </div>
+    </aside>
+  </div>
+</main>
+</body>
+</html>

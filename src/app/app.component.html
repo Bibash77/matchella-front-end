@@ -1,14 +1,37 @@
 ﻿<div class="app-container" [ngClass]="{ 'bg-light': account }">
     <!-- main nav -->
 <!--  nishant nav bar here-->
-    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="account?.id">
-        <div class="navbar-nav">
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home {{account.userId}}</a>
-            <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>
-            <a *ngIf="account.roleType === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>
+<!--    <nav class="navbar navbar-expand navbar-dark bg-color" >-->
+<!--        <div class="navbar-nav">-->
+<!--            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home {{account.userId}}</a>-->
+<!--            <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>-->
+<!--            <a *ngIf="account.roleType === Role.Admin" routerLink="/admin" routerLinkActive="active" class="nav-item nav-link">Admin</a>-->
+<!--            <a (click)="logout()" class="nav-item nav-link">Logout</a>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-color" *ngIf="account?.id">
+    <a class="navbar-brand" href="#"><mat-icon fontIcon="heart"></mat-icon></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link">Home {{account.userId}}</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/profile" routerLinkActive="active" class="nav-item nav-link">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">My Cards</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
             <a (click)="logout()" class="nav-item nav-link">Logout</a>
-        </div>
-    </nav>
+    </span>
+    </div>
+  </nav>
 
     <!-- subnav router outlet -->
     <router-outlet name="subnav"></router-outlet>

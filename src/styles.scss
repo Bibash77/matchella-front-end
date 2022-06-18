@@ -1,3 +1,16 @@
 .testing {
   background-color: #b6efd5;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.bg-color {
+  background-color: #ee6391;
+  color: white;
+}
+.bg-color-secondary {
+  background-color: #3bd93b;
+  color: white;
+}
