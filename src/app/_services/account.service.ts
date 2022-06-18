@@ -6,8 +6,9 @@ import { map, finalize } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 import { Account } from '@app/_models';
+import {LocalStorageUtil} from "@app/core/utils/local-storage-util";
 
-const baseUrl = `${environment.apiUrl}/accounts`;
+const baseUrl = `${environment.apiUrl}/v1/user`;
 const tokenUrl = `${environment.tokenUrl}`;
 
 @Injectable({ providedIn: 'root' })
@@ -29,7 +30,7 @@ export class AccountService {
 
     public set setAccount(acc: Account) {
          this.accountSubject = new BehaviorSubject<Account>(null);
-      this.account = this.accountSubject.asObservable();
+      this.accountSubject.next(acc);
     }
 
     login(email: string, password: string) {
@@ -50,10 +51,11 @@ export class AccountService {
     }
 
     logout() {
+      LocalStorageUtil.clearStorage();
         this.http.post<any>(`${baseUrl}/revoke-token`, {}, { withCredentials: true }).subscribe();
         this.stopRefreshTokenTimer();
         this.accountSubject.next(null);
-        this.router.navigate(['/account/login']);
+        this.router.navigate(['/account/login']).then(value =>     window.location.reload());
     }
 
     refreshToken() {
